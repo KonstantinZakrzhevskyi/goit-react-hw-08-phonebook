@@ -7,7 +7,7 @@ import s from './ContactForm.module.css';
 
 function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
 
@@ -19,8 +19,8 @@ function ContactForm() {
         setName(value);
         break;
 
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
 
       default:
@@ -33,7 +33,7 @@ function ContactForm() {
 
     contacts.map(contact => contact.name).includes(name)
       ? toast.error(`${name} is already in contacts.`)
-      : dispatch(contactsOperations.addContact({ name, phone }));
+      : dispatch(contactsOperations.addContact({ name, number }));
 
     reset();
     toast.success('addContact');
@@ -41,7 +41,7 @@ function ContactForm() {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -65,8 +65,8 @@ function ContactForm() {
         <input
           className={s.form__input}
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required
