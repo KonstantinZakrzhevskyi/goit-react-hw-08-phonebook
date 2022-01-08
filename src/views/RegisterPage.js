@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
+import s from './views.module.css';
+
 export default function RegisterPage() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -31,17 +33,24 @@ export default function RegisterPage() {
 
   return (
     <div>
-      <h1>Sign up</h1>
+      <h1 className={s.registerPage__title}>Sign up</h1>
 
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
+      <form className={s.form} onSubmit={handleSubmit} autoComplete="off">
+        <label className={s.form__label}>
           Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <input
+            className={s.form__input}
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+          />
         </label>
 
-        <label>
+        <label className={s.form__label}>
           Email
           <input
+            className={s.form__input}
             type="email"
             name="email"
             value={email}
@@ -49,9 +58,10 @@ export default function RegisterPage() {
           />
         </label>
 
-        <label>
+        <label className={s.form__label}>
           Password
           <input
+            className={s.form__input}
             type="password"
             name="password"
             value={password}
@@ -59,7 +69,9 @@ export default function RegisterPage() {
           />
         </label>
 
-        <button type="submit">Sign up</button>
+        <button className={s.form__btn} type="submit">
+          Sign up
+        </button>
       </form>
     </div>
   );

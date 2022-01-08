@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
+import s from './views.module.css';
+
 export default function LoginPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
@@ -27,12 +29,13 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1 className={s.loginPage__title}>Login</h1>
 
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
+      <form className={s.form} onSubmit={handleSubmit} autoComplete="off">
+        <label className={s.form__label}>
           Email
           <input
+            className={s.form__input}
             type="email"
             name="email"
             value={email}
@@ -41,9 +44,10 @@ export default function LoginPage() {
           />
         </label>
 
-        <label>
+        <label className={s.form__label}>
           Password
           <input
+            className={s.form__input}
             type="password"
             name="password"
             value={password}
@@ -52,7 +56,9 @@ export default function LoginPage() {
           />
         </label>
 
-        <button type="submit">Login</button>
+        <button className={s.form__btn} type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

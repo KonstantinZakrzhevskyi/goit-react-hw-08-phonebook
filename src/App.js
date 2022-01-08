@@ -41,47 +41,49 @@ function App() {
 
   return (
     !isFetchingCurrentUser && (
-      <Container>
+      <>
         <AppBar />
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <PublicRoute>
-                  <HomePage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <PublicRoute restricted>
-                  <RegisterPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <PublicRoute redirectTo="/contacts" restricted>
-                  <LoginPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/contacts"
-              element={
-                <PrivateRoute redirectTo="/login">
-                  <ContactsPage />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
-        </Suspense>
+        <Container>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PublicRoute>
+                    <HomePage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <PublicRoute restricted>
+                    <RegisterPage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute redirectTo="/contacts" restricted>
+                    <LoginPage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/contacts"
+                element={
+                  <PrivateRoute redirectTo="/login">
+                    <ContactsPage />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </Suspense>
 
-        <Toaster position="top-right" />
-      </Container>
+          <Toaster position="top-right" />
+        </Container>
+      </>
     )
   );
 }

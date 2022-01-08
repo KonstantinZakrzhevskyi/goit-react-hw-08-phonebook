@@ -7,7 +7,7 @@ import s from './Navigation.module.css';
 export default function Navigation() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <nav>
+    <nav className="nav">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? s.activeLink : s.link)}

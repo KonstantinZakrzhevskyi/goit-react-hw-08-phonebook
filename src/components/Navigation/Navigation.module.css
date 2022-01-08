@@ -1,10 +1,13 @@
 .link {
   display: inline-block;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #aaa;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 0;
+  font-size: 35px;
+  font-weight: 700;
+  color: rgb(77, 6, 47);
+  text-decoration: none;
 }
 
 .link:not(:last-child) {
@@ -13,5 +16,5 @@
 
 .activeLink {
   composes: link;
-  color: blue;
+  color: bisque;
 }
