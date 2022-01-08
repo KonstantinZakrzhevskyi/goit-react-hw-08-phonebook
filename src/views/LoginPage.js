@@ -36,6 +36,7 @@ export default function LoginPage() {
             type="email"
             name="email"
             value={email}
+            required
             onChange={handleChange}
           />
         </label>
@@ -46,6 +47,7 @@ export default function LoginPage() {
             type="password"
             name="password"
             value={password}
+            required
             onChange={handleChange}
           />
         </label>

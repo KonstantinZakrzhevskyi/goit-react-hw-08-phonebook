@@ -7,7 +7,7 @@ import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
 import { contactsOperations, contactsSelectors } from 'redux/contacts';
 
-export default function ContactsPage(params) {
+export default function ContactsPage() {
   const dispatch = useDispatch();
   const isLoadingContacts = useSelector(contactsSelectors.getLoading);
 

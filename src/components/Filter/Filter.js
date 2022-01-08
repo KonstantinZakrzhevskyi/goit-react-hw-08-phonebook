@@ -3,13 +3,13 @@ import { contactsActions, contactsSelectors } from 'redux/contacts/index';
 
 import s from './Filter.module.css';
 
-function Filter() {
+export default function Filter() {
   const value = useSelector(contactsSelectors.getFilter);
   const dispatch = useDispatch();
 
   return (
     <label className={s.filter__label}>
-      <p className={s.filter__text}>Find contacts by name</p>
+      <p className={s.filter__text}>Find contacts by name :</p>
       <input
         className={s.filter__input}
         type="text"
@@ -17,12 +17,8 @@ function Filter() {
         title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
         required
         value={value}
-        onChange={e =>
-          dispatch(contactsActions.changeFilter(e.currentTarget.value))
-        }
+        onChange={e => dispatch(contactsActions.changeFilter(e.target.value))}
       />
     </label>
   );
 }
-
-export default Filter;

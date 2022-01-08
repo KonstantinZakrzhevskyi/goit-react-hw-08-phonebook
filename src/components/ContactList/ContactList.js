@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 
 import s from './ContactList.module.css';
 
-function ContactList() {
+export default function ContactList() {
   const contacts = useSelector(contactsSelectors.getVisibleContacts);
   const dispatch = useDispatch();
 
@@ -37,5 +37,3 @@ function ContactList() {
     </ul>
   );
 }
-
-export default ContactList;

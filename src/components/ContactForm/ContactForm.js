@@ -36,7 +36,7 @@ function ContactForm() {
       : dispatch(contactsOperations.addContact({ name, number }));
 
     reset();
-    toast.success('addContact');
+    toast.success('Add contact');
   };
 
   const reset = () => {
