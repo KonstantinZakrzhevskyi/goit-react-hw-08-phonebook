@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { createAsyncThunk, isRejectedWithValue } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -17,7 +18,9 @@ const register = createAsyncThunk('auth/register', async credentials => {
     const { data } = await axios.post('/users/signup', credentials);
     token.set(data.token);
     return data;
-  } catch (error) {}
+  } catch (error) {
+    toast.error('Something went wrong');
+  }
 });
 
 const logIn = createAsyncThunk('auth/login', async credentials => {
@@ -25,14 +28,18 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
     return data;
-  } catch (error) {}
+  } catch (error) {
+    toast.error('Something went wrong');
+  }
 });
 
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post('/users/logout');
     token.unset();
-  } catch (error) {}
+  } catch (error) {
+    toast.error('Something went wrong');
+  }
 });
 
 const fetchCurrentUser = createAsyncThunk(
@@ -49,7 +56,9 @@ const fetchCurrentUser = createAsyncThunk(
     try {
       const { data } = await axios.get('/users/current');
       return data;
-    } catch (error) {}
+    } catch (error) {
+      toast.error('Something went wrong');
+    }
   },
 );
 
