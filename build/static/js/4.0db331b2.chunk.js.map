@@ -1,1 +1,0 @@
-{"version":3,"sources":["views/HomePage.js"],"names":["HomePage"],"mappings":"gJAAA,uBAQeA,UANE,kBACf,8BACE","file":"static/js/4.0db331b2.chunk.js","sourcesContent":["import React from 'react';\r\n\r\nconst HomePage = () => (\r\n  <div>\r\n    <h1>Your Phonebook</h1>\r\n  </div>\r\n);\r\n\r\nexport default HomePage;\r\n"],"sourceRoot":""}
